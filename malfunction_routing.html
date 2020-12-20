@@ -1,0 +1,16 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+Malfunction Routing Page
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Routing Page</h1>
+
+    <a class="p-2 text-dark" href="/create_malfunction_report">Create Malfunction</a>
+    <a class="p-2 text-dark" href="/payed_malfunctions">Paid Malfunctions</a>
+<a class="p-2 text-dark" href="/unpayed_malfunctions">Unpaid Malfunctions</a>
+</div>
+
+{% endblock %}

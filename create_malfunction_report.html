@@ -1,0 +1,36 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+Create Malfunction Report
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Create Report Page</h1>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    <form method="post">
+        <tr>
+                <td>Description</td>
+                <td><input type="text" name="description" class="form-control" maxlength="500"></td>
+        </tr>
+        <tr>
+                <td>Fix Price</td>
+                <td><input type="number" name="fix_price" class="form-control" max="999999"></td>
+        </tr>
+
+        <tr>
+                <td><input type="submit" value="Create Report"></td>
+        </tr>
+
+    </form>
+</div>
+
+{% endblock %}

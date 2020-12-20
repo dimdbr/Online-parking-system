@@ -1,0 +1,53 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+Create Contract Page
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Contract Sign Page</h1>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    <form method="post">
+        <tr>
+        <h2>What type of tariff you want to have?</h2>
+        <select name="tariff_type">
+        <option value ="common">Common</option>
+        <option value ="extended">Extended</option>
+        <option value ="premium">Premium</option>
+        </select>
+        </tr>
+        <tr>
+            <h2>Select Parking Places Number</h2>
+            <select name="parking_place_number" id ="pp">
+                {% for el in parking_places %}
+                <option  value ="{{ el.id }}">{{ el.id }}</option>
+                {% endfor %}
+            </select>
+        </tr>
+
+
+
+
+        <tr>
+                <h2>Car Name</h2>
+                <td><input type="text" name="registered_cars" class="form-control"></td>
+        </tr>
+
+
+        <tr>
+                <td><input type="submit" value="Sign"></td>
+        </tr>
+
+    </form>
+</div>
+
+{% endblock %}

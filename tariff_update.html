@@ -1,0 +1,45 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+Update Tariff Page
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Tariff Update Page</h1>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    <form method="post">
+        <tr>
+            <td>Parking Place Price</td>
+            <td><input type="number" max="999999" name="parking_place_price" id="parking_place_price" value="{{ tariff.parking_place_price }}" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Water Tariff</td>
+            <td><input type="number" max="999999" name="water_tariff" id="water_tariff" value="{{ tariff.water_tariff }}" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Gas Tariff</td>
+            <td><input type="number" max="999999" name="gas_tariff" id="gas_tariff" value="{{ tariff.gas_tariff }}" class="form-control"></td>
+        </tr>
+        <tr>
+            <td>Electricity Tariff</td>
+            <td><input type="number" max="999999" name="electricity_tariff" id="electricity_tariff" value="{{ tariff.electricity_tariff }}" class="form-control"></td>
+        </tr>
+
+        <tr>
+
+                <td><input type="submit" class="btn btn-success" value="Update"></td>
+        </tr>
+
+    </form>
+</div>
+
+{% endblock %}

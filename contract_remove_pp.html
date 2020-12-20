@@ -1,0 +1,38 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+Create Contract Page
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Contract Update Page</h1>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+    <form method="post">
+
+        <tr>
+                <h2>Remove Parking places from contracts </h2>
+                     <select name="parking_place_number_delete" id ="pp" >
+                        {% for el2 in occ_parking_places %}
+                        <option  value ="{{ el2.id }}">{{ el2.id }}</option>
+                        {% endfor %}
+            </select>
+        </tr>
+
+
+        <tr>
+                <td><input type="submit" value="Submit Removal"></td>
+        </tr>
+
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+All tariffs of Parking System
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>All tariffs</h1>
+
+    {% if tariffs|length > 0 %}
+
+   {% for el in tariffs %}
+    <div class="alert alert-info">
+        <p> Parking Place Price <b>{{el.parking_place_price}}</b></p>
+        <p> Water Tariff <b>{{el.water_tariff}}</b></p>
+        <p> Gas Tariff <b>{{el.gas_tariff}}</b></p>
+         <p> Electricity Tariff <b>{{el.electricity_tariff}}</b></p>
+          <p> Description <b>{{el.description}}</b></p>
+        <a href="/tariffs/{{el.id}}/update" class="btn btn-warning"> Change Tariff</a>
+    </div>
+    {%endfor%}
+
+    {% else %}
+    <p>No users yet</p>
+    {% endif %}
+</div>
+
+{% endblock %}

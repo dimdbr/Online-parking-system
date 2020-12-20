@@ -1,0 +1,36 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+All Contracts of Parking System
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>All Contracts</h1>
+
+    {% if contracts|length > 0 %}
+
+   {% for el in contracts %}
+    <div class="alert alert-info">
+        <p>User ID <b>{{el.user_id}}</b> </p>
+        <p>Tariff ID  <b>{{el.tariff_id}}</b></p>
+        <p> Date of Sign <b>{{el.create_date}}</b></p>
+        <p> Registered Cars {{ el.registered_cars }}</p>
+        <h3>Occupied Places</h3>
+
+        {% for el1 in parking_places %}
+            {% if el1.contract_id == el.id %}
+                <p># {{ el1.id }}</p>
+            {% endif %}
+
+        {% endfor %}
+        <a href="/contracts/{{el.id}}" class="btn btn-warning"> More about this contract</a>
+    </div>
+    {%endfor%}
+
+    {% else %}
+    <p>No contracts yet</p>
+    {% endif %}
+</div>
+
+{% endblock %}

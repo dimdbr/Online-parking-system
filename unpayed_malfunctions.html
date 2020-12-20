@@ -1,0 +1,27 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+All UnPayed Malfunctions of Parking System
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>All UnPaid Malfunctions</h1>
+
+    {% if unpayed_malfunctions|length > 0 %}
+
+   {% for el in unpayed_malfunctions %}
+    <div class="alert alert-info">
+        <p>Fix Price <b>{{el.fix_price}}</b></p>
+        <p>Description <b>{{el.description}}</b></p>
+        <p>Worker ID <b>{{el.user_id}}</b></p>
+
+    </div>
+    {%endfor%}
+
+    {% else %}
+    <p>No UnPayed Malfunctions Yet </p>
+    {% endif %}
+</div>
+
+{% endblock %}

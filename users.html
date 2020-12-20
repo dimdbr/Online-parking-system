@@ -1,0 +1,27 @@
+{%extends 'base.html' %}
+
+{% block  title %}
+All users of Parking System
+{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>All users</h1>
+
+    {% if users|length > 0 %}
+
+   {% for el in users %}
+    <div class="alert alert-info">
+        <p>First Name <b>{{el.first_name}}</b></p>
+        <p>Last Name <b>{{el.last_name}}</b></p>
+        <p>Month Pay <b>{{el.month_pay}}</b></p>
+        <a href="/users/{{el.id}}" class="btn btn-warning"> More about this user</a>
+    </div>
+    {%endfor%}
+
+    {% else %}
+    <p>No users yet</p>
+    {% endif %}
+</div>
+
+{% endblock %}
